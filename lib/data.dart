@@ -1,7 +1,7 @@
-import 'package:alarm_clock_app/constrants/theme_data.dart';
-import 'package:alarm_clock_app/enums.dart';
-import 'package:alarm_clock_app/models/alarm_info.dart';
-import 'package:alarm_clock_app/models/menu_info.dart';
+import 'package:clock_app/constants/theme_data.dart';
+import 'package:clock_app/enums.dart';
+import 'models/alarm_info.dart';
+import 'models/menu_info.dart';
 
 List<MenuInfo> menuItems = [
   MenuInfo(MenuType.clock,

@@ -1,14 +1,12 @@
 import 'dart:async';
 
-import 'package:alarm_clock_app/constrants/theme_data.dart';
+import 'package:clock_app/constants/theme_data.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import 'clockview.dart';
 
 class ClockPage extends StatefulWidget {
-  const ClockPage({Key key}) : super(key: key);
-
   @override
   _ClockPageState createState() => _ClockPageState();
 }
@@ -24,7 +22,7 @@ class _ClockPageState extends State<ClockPage> {
     if (!timezoneString.startsWith('-')) offsetSign = '+';
 
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 40),
+      padding: EdgeInsets.symmetric(horizontal: 32, vertical: 40),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -126,11 +124,10 @@ class DigitalClockWidgetState extends State<DigitalClockWidget> {
     this.timer = Timer.periodic(Duration(seconds: 1), (timer) {
       var perviousMinute = DateTime.now().add(Duration(seconds: -1)).minute;
       var currentMinute = DateTime.now().minute;
-      if (perviousMinute != currentMinute) {
+      if (perviousMinute != currentMinute)
         setState(() {
           formattedTime = DateFormat('HH:mm').format(DateTime.now());
         });
-      }
     });
     super.initState();
   }
@@ -143,8 +140,7 @@ class DigitalClockWidgetState extends State<DigitalClockWidget> {
 
   @override
   Widget build(BuildContext context) {
-    // remove in production
-    print('=====>digital clock updated');
+    // print('=====>digital clock updated');
     return Text(
       formattedTime,
       style: TextStyle(

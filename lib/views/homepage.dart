@@ -1,21 +1,15 @@
-// ignore_for_file: prefer_const_constructors
-
-import 'package:alarm_clock_app/constrants/theme_data.dart';
-import 'package:alarm_clock_app/data.dart';
-import 'package:alarm_clock_app/enums.dart';
-import 'package:alarm_clock_app/models/menu_info.dart';
-import 'package:alarm_clock_app/views/alarm_page.dart';
-import 'package:alarm_clock_app/views/stopwatch_page.dart';
-import 'package:alarm_clock_app/views/clock_page.dart';
-import 'package:alarm_clock_app/views/timer_page.dart';
+import 'package:clock_app/constants/theme_data.dart';
+import 'package:clock_app/data.dart';
+import 'package:clock_app/enums.dart';
+import 'package:clock_app/models/menu_info.dart';
+import 'package:clock_app/views/alarm_page.dart';
+import 'package:clock_app/views/clock_page.dart';
+import 'package:clock_app/views/stopwatch_page.dart';
+import 'package:clock_app/views/timer_page.dart';
 import 'package:flutter/material.dart';
-import 'package:alarm_clock_app/views/clockview.dart';
-import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key key}) : super(key: key);
-
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -29,6 +23,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           Expanded(
             child: Consumer<MenuInfo>(
+              // ignore: missing_return
               builder: (BuildContext context, MenuInfo value, Widget child) {
                 if (value.menuType == MenuType.clock) {
                   return ClockPage();
@@ -70,7 +65,7 @@ class _HomePageState extends State<HomePage> {
               : Colors.transparent,
           onPressed: () {
             var menuInfo = Provider.of<MenuInfo>(context, listen: false);
-            menuInfo.updateMenuInfo(currentMenuInfo);
+            menuInfo.updateMenu(currentMenuInfo);
           },
           child: Row(
             children: <Widget>[

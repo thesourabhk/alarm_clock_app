@@ -1,4 +1,4 @@
-package com.example.alarm_clock_app
+package com.example.clock_app
 
 import io.flutter.embedding.android.FlutterActivity
 

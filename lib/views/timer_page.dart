@@ -1,4 +1,4 @@
-import 'package:alarm_clock_app/constrants/theme_data.dart';
+import 'package:clock_app/constants/theme_data.dart';
 import 'package:flutter/material.dart';
 
 class TimerPager extends StatefulWidget {

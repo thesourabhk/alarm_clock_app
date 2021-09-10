@@ -1,12 +1,12 @@
-import 'package:alarm_clock_app/alarm_helper.dart';
-import 'package:alarm_clock_app/constrants/theme_data.dart';
-import 'package:alarm_clock_app/data.dart';
-import 'package:alarm_clock_app/main.dart';
-import 'package:alarm_clock_app/models/alarm_info.dart';
+import 'package:clock_app/alarm_helper.dart';
+import 'package:clock_app/constants/theme_data.dart';
+import 'package:clock_app/models/alarm_info.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:intl/intl.dart';
+
+import '../main.dart';
 
 class AlarmPage extends StatefulWidget {
   @override
@@ -24,7 +24,7 @@ class _AlarmPageState extends State<AlarmPage> {
   void initState() {
     _alarmTime = DateTime.now();
     _alarmHelper.initializeDatabase().then((value) {
-      print('------database intialized');
+      // print('------database intialized');
       loadAlarms();
     });
     super.initState();
@@ -296,8 +296,7 @@ class _AlarmPageState extends State<AlarmPage> {
         presentBadge: true,
         presentSound: true);
     var platformChannelSpecifics = NotificationDetails(
-        android: androidPlatformChannelSpecifics,
-        iOS: iOSPlatformChannelSpecifics);
+        androidPlatformChannelSpecifics, iOSPlatformChannelSpecifics);
 
     await flutterLocalNotificationsPlugin.schedule(0, 'Office', alarmInfo.title,
         scheduledNotificationDateTime, platformChannelSpecifics);

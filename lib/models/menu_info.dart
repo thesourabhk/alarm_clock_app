@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
-
-import 'package:alarm_clock_app/enums.dart';
+import 'package:clock_app/enums.dart';
 import 'package:flutter/foundation.dart';
 
 class MenuInfo extends ChangeNotifier {
@@ -10,12 +8,12 @@ class MenuInfo extends ChangeNotifier {
 
   MenuInfo(this.menuType, {this.title, this.imageSource});
 
-  updateMenuInfo(MenuInfo menuInfo) {
+  updateMenu(MenuInfo menuInfo) {
     this.menuType = menuInfo.menuType;
     this.title = menuInfo.title;
     this.imageSource = menuInfo.imageSource;
 
-    // Important
+//Important
     notifyListeners();
   }
 }

@@ -285,9 +285,9 @@ class _AlarmPageState extends State<AlarmPage> {
       'alarm_notif',
       'alarm_notif',
       'Channel for Alarm notification',
-      icon: 'codex_logo',
+      icon: 'clock',
       sound: RawResourceAndroidNotificationSound('a_long_cold_sting'),
-      largeIcon: DrawableResourceAndroidBitmap('codex_logo'),
+      largeIcon: DrawableResourceAndroidBitmap('clock'),
     );
 
     var iOSPlatformChannelSpecifics = IOSNotificationDetails(

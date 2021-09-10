@@ -75,6 +75,7 @@ class _StopwatchPagerState extends State<StopwatchPager> {
                 ],
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CustomButton(
                     color: Color(0xFFF15C2A),
@@ -96,7 +97,7 @@ class _StopwatchPagerState extends State<StopwatchPager> {
             ],
           ),
           Container(
-            height: 120,
+            height: 150,
             margin: const EdgeInsets.all(8),
             child: StreamBuilder<List<StopWatchRecord>>(
               stream: _stopWatchTimer.records,
@@ -106,34 +107,34 @@ class _StopwatchPagerState extends State<StopwatchPager> {
                 final value = snapshot.data;
                 if (value.isEmpty) {
                   return Container();
-                  // ignore: dead_code
-                  Future.delayed(const Duration(milliseconds: 100), () {
-                    _scrollController.animateTo(
-                      _scrollController.position.maxScrollExtent,
-                      duration: const Duration(milliseconds: 200),
-                      curve: Curves.easeOut,
-                    );
-                  });
-
-                  return ListView.builder(
-                    controller: _scrollController,
-                    itemBuilder: (context, index) {
-                      final data = value[index];
-                      return Column(
-                        children: [
-                          Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text('${index + 1} - ${data.displayTime}',
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.bold))),
-                          Divider(height: 1.0),
-                        ],
-                      );
-                    },
-                    itemCount: value.length,
-                  );
                 }
+                // ignore: dead_code
+                Future.delayed(const Duration(milliseconds: 100), () {
+                  _scrollController.animateTo(
+                    _scrollController.position.maxScrollExtent,
+                    duration: const Duration(milliseconds: 200),
+                    curve: Curves.easeOut,
+                  );
+                });
+
+                return ListView.builder(
+                  controller: _scrollController,
+                  itemBuilder: (context, index) {
+                    final data = value[index];
+                    return Column(
+                      children: [
+                        Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text('${index + 1} - ${data.displayTime}',
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w700))),
+                        Divider(height: 1.0),
+                      ],
+                    );
+                  },
+                  itemCount: value.length,
+                );
               },
             ),
           ),

@@ -66,7 +66,7 @@ class _StopwatchPagerState extends State<StopwatchPager> {
                   ),
                   SizedBox(width: 10.0),
                   CustomButton(
-                    color: Colors.red[200],
+                    color: Color(0xFFF15C2A),
                     label: "Stop",
                     onPress: () {
                       _stopWatchTimer.onExecute.add(StopWatchExecute.stop);
@@ -74,11 +74,12 @@ class _StopwatchPagerState extends State<StopwatchPager> {
                   ),
                 ],
               ),
+              SizedBox(height: 16.0),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CustomButton(
-                    color: Color(0xFFF15C2A),
+                    color: Colors.red[300],
                     label: "Lap",
                     onPress: () {
                       _stopWatchTimer.onExecute.add(StopWatchExecute.lap);
@@ -157,7 +158,7 @@ class CustomButton extends StatelessWidget {
       color: color,
       shape: const StadiumBorder(),
       onPressed: onPress,
-      child: Text(label, style: TextStyle(color: Colors.white12)),
+      child: Text(label, style: TextStyle(color: Colors.white, fontSize: 20)),
     );
   }
 }
